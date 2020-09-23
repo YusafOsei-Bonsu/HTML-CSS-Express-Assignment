@@ -19,4 +19,4 @@ From steps 1-6 in the terminal...
 ## Blockers/Resolutions
 | Blockers    | Resolutions |
 | ----------- | ----------- |
-| Blocker 1   | Res 1       |
+| `Uncaught SyntaxError: Cannot use import statement outside a module`  | Appended `type=module` to the script tag above the `</body>` tag `<script type="module" src="/javascripts/index.js"></script>` |
