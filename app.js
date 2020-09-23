@@ -14,6 +14,8 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+// Providing Express app with JS, CSS & images
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
@@ -24,7 +26,7 @@ app.use((request, response, next) => {
 });
 
 // error handler
-app.use(function(err, request, response, next) {
+app.use((err, request, response, next) => {
   // set locals, only providing error in development
   response.locals.message = err.message;
   response.locals.error = request.app.get('env') === 'development' ? err : {};
