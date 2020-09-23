@@ -17,17 +17,21 @@ app.use(cookieParser());
 // Providing Express app with JS, CSS & images
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Displays the homepage
 app.get('/', (request, response, next) => {
   response.render('index');
 });
 
+// Displays the user's details on the details page
 app.get('/details', (request, response) => {
-  response.render('details');
+  const { title, forename, surname, dob, telephone, email } = request.query;
+  response.render('details', { title, forename, surname, dob, telephone, email });
 });
 
+// Retrieves the form data and shows the details page
 app.post('/submit-form', (request, response) => {
-  console.log(request.body);
-  response.redirect('/');
+  const { title, forename, surname, dob, telephone, email } = request.body;
+  response.redirect(`/details?title=${title}&forename=${forename}&surname=${surname}&dob=${dob}&telephone=${telephone}&email=${email}`);
 });
 
 // catch 404 and forward to error handler
