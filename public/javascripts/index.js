@@ -40,16 +40,16 @@ const removeErrors = () => {
     })
 }
 
-form.addEventListener('submit', (evt) => {
-    evt.preventDefault();
-    removeErrors();
+// form.addEventListener('submit', (evt) => {
+//     evt.preventDefault();
+//     removeErrors();
 
-    const validatedFields = validator.validate(DOMElements);
+//     const validatedFields = validator.validate(DOMElements);
 
-    // Checks if all the data is valid
-    const allValid = validatedFields.every((item) => item === true);
+//     // Checks if all the data is valid
+//     const allValid = validatedFields.every((item) => item === true);
 
-    if (allValid === false) {
-      alert("ERROR: At least one of the input fields are incorrect!")
-    }
-});
+//     if (allValid === false) {
+//       alert("ERROR: At least one of the input fields are incorrect!")
+//     }
+// });
