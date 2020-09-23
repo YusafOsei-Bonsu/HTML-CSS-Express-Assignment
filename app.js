@@ -3,7 +3,6 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const indexRouter = require('./routes/index');
 const app = express();
 
 // view engine setup
@@ -12,13 +11,24 @@ app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // Providing Express app with JS, CSS & images
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+app.get('/', (request, response, next) => {
+  response.render('index');
+});
+
+app.get('/details', (request, response) => {
+  response.render('details');
+});
+
+app.post('/submit-form', (request, response) => {
+  console.log(request.body);
+  response.redirect('/');
+});
 
 // catch 404 and forward to error handler
 app.use((request, response, next) => {
