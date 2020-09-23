@@ -4,6 +4,7 @@ This is the previous HTML/CSS assignment, but with Express/Node.js as the underl
 ## Tech Stack
 - HTML/CSS
 - Express
+- EJS
 
 ## Project Setup
 From steps 1-6 in the terminal...
