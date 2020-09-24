@@ -72,7 +72,10 @@ DOMElements.surname.element.addEventListener('change', (evt) => {
 DOMElements.dob.element.addEventListener('change', (evt) => {
   const dob = evt.target.value;
   validChecks.dob = validator.validateDOB(dob) ? true : false;
-  console.log(validChecks.dob);
+  console.log(`Date-of-birth: ${validChecks.dob}`);
+
+  // If the surname is invalid, an error message is displayed 
+  errorDetection("dob", "dob-error", DOMElements.dob.error);
 });
 
 // Checks the validity of the telephone whilst it's being entered
