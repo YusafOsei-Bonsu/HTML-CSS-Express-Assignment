@@ -23,27 +23,33 @@
           <option value="Lord">Lord</option>
           <option value="Professor">Professor</option>
         </select>
+        <span id="title-error" class="error"></span>
       </div>
       <div class="form-group">
         <label for="first-name">First name<abbr title="required">*</abbr></label>
         <input type="text" id="first-name" name="forename" class="form-input" required />
+        <span id="forename-error" class="error"></span>
       </div>
       <div class="form-group">
         <label for="surname">Surname<abbr title="required">*</abbr></label>
         <input type="text" id="surname" name="surname" class="form-input" required />
+        <span id="surname-error" class="error"></span>
       </div>
       <div class="form-group">
         <label for="date-of-birth">Date of birth<abbr title="required">*</abbr></label>
         <input type="date" id="date-of-birth" name="dob" class="form-input" required />
+        <span id="dob-error" class="error"></span>
       </div>
       <div class="form-group">
         <label for="telephone">Telephone number<abbr title="required">*</abbr></label>
         <div class="input-description">We may need to get in touch with you about your order</div>
         <input type="text" id="telephone" name="telephone" class="form-input" required />
+        <span id="telephone-error" class="error"></span>
       </div>
       <div class="form-group">
         <label for="email">Email address<abbr title="required">*</abbr></label>
-        <input type="text" id="email" name="email" class="form-input" required />
+        <input type="email" id="email" name="email" class="form-input" required />
+        <span id="email-error" class="error"></span>
       </div>
       <button id="submit" type="submit" class="btn">Continue<svg viewBox="0 0 16 16" class="bi bi-arrow-right-short" fill="currentColor" title="arrow" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
