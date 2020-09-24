@@ -6,54 +6,54 @@ const DOMElements = {
       element: document.getElementById('title'),
       error: 'Please select a valid title from the list',
       validCheck: false,
-      disableBtn: true,
+      enableBtn: false,
     },
     forename: {
       element: document.getElementById('first-name'),
       error: 'First name should only include alphabetical characters',
       validCheck: false,
-      disableBtn: true,
+      enableBtn: false,
     },
     surname: {
       element: document.getElementById('surname'),
       error: 'Surname should only include alphabetical characters',
       validCheck: false,
-      disableBtn: true,
+      enableBtn: false,
     },
     dob: {
       element: document.getElementById('date-of-birth'),
       error: 'You must be aged 18 or over to register',
       validCheck: false,
-      disableBtn: true,
+      enableBtn: false,
     },
     telephone: {
       element: document.getElementById('telephone'),
       error: 'Please enter a valid UK telephone number',
       validCheck: false,
-      disableBtn: true,
+      enableBtn: false,
     },
     email: {
       element: document.getElementById('email'),
       error: 'Please enter a valid email address',
       validCheck: false,
-      disableBtn: true,
+      enableBtn: false,
     },
 }
 
 // Enables submit button after all data is valid
 const enableSubmitBtn = () => {
-  const enableBtn = Object.keys(DOMElements).every(field => DOMElements[field].disableBtn === true);
-  return enableBtn;
+  const enableBtn = Object.keys(DOMElements).every(field => DOMElements[field].enableBtn === true);
+  return !enableBtn;
 }
 
 // Displays an error in response to invalid data
 const validation = (field, id, errorMsg) => {
   if (!DOMElements[field].validCheck) {
     document.getElementById(id).innerHTML = errorMsg;
-    DOMElements[field].disableBtn = true;
+    DOMElements[field].enableBtn = false;
   } else {
     document.getElementById(id).innerHTML = '';
-    DOMElements[field].disableBtn = false;
+    DOMElements[field].enableBtn = true;
   }
 
   document.getElementById('submit').disabled = enableSubmitBtn();
