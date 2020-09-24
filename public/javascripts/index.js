@@ -42,13 +42,23 @@ const DOMElements = {
     },
 }
 
+// Enables submit button after all data is valid
+const enableSubmitBtn = () => {
+  const enableBtn = Object.keys(DOMElements).every(field => DOMElements[field].disableBtn === true);
+  return enableBtn;
+}
+
 // Displays an error in response to invalid data
-const errorDetection = (field, id, errorMsg) => {
+const validation = (field, id, errorMsg) => {
   if (!DOMElements[field].validCheck) {
     document.getElementById(id).innerHTML = errorMsg;
+    DOMElements[field].disableBtn = true;
   } else {
     document.getElementById(id).innerHTML = '';
+    DOMElements[field].disableBtn = false;
   }
+
+  document.getElementById('submit').disabled = enableSubmitBtn();
 }
 
 // Validates the title whilst the title is being selected
@@ -57,7 +67,7 @@ DOMElements.title.element.addEventListener('change', (evt) => {
   DOMElements.title.validCheck = validator.validateTitle(title) ? true : false;
 
   // If the title is invalid, an error message is displayed 
-  errorDetection("title", "title-error", DOMElements.title.error);
+  validation("title", "title-error", DOMElements.title.error);
 });
 
 // Checks the validity of the forename whilst it's being entered
@@ -66,7 +76,7 @@ DOMElements.forename.element.addEventListener('change', (evt) => {
   DOMElements.forename.validCheck = validator.validateName(forename) ? true : false;
 
   // If the firstname is invalid, an error message is displayed 
-  errorDetection("forename", "forename-error", DOMElements.forename.error);
+  validation("forename", "forename-error", DOMElements.forename.error);
 });
 
 // Checks the validity of the surname whilst it's being entered
@@ -75,7 +85,7 @@ DOMElements.surname.element.addEventListener('change', (evt) => {
   DOMElements.surname.validCheck = validator.validateName(lastname) ? true : false;
 
   // If the surname is invalid, an error message is displayed 
-  errorDetection("surname", "surname-error", DOMElements.surname.error);
+  validation("surname", "surname-error", DOMElements.surname.error);
 });
 
 // Checks the validity of the date-of-birth whilst it's being entered
@@ -84,7 +94,7 @@ DOMElements.dob.element.addEventListener('change', (evt) => {
   DOMElements.dob.validCheck = validator.validateDOB(dob) ? true : false;
 
   // If the date-of-birth is invalid, an error message is displayed 
-  errorDetection("dob", "dob-error", DOMElements.dob.error);
+  validation("dob", "dob-error", DOMElements.dob.error);
 });
 
 // Checks the validity of the telephone whilst it's being entered
@@ -93,7 +103,7 @@ DOMElements.telephone.element.addEventListener('change', (evt) => {
   DOMElements.telephone.validCheck = validator.validatePhone(phone) ? true : false;
 
   // If the telephone is invalid, an error message is displayed 
-  errorDetection("telephone", "telephone-error", DOMElements.telephone.error);
+  validation("telephone", "telephone-error", DOMElements.telephone.error);
 });
 
 // Checks the validity of the email whilst it's being entered
@@ -102,5 +112,5 @@ DOMElements.email.element.addEventListener('change', (evt) => {
   DOMElements.email.validCheck = validator.validateEmail(email) ? true : false;
 
   // If the email is invalid, an error message is displayed 
-  errorDetection("email", "email-error", DOMElements.email.error);
+  validation("email", "email-error", DOMElements.email.error);
 });
