@@ -82,7 +82,10 @@ DOMElements.dob.element.addEventListener('change', (evt) => {
 DOMElements.telephone.element.addEventListener('change', (evt) => {
   const phone = evt.target.value;
   validChecks.telephone = validator.validatePhone(phone) ? true : false;
-  console.log(validChecks.telephone);
+  console.log(`Telephone: ${validChecks.telephone}`);
+
+  // If the surname is invalid, an error message is displayed 
+  errorDetection("telephone", "telephone-error", DOMElements.telephone.error);
 });
 
 // Checks the validity of the email whilst it's being entered
