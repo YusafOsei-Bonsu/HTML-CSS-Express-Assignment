@@ -36,28 +36,3 @@ export const validateEmail = (email) => {
     const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     return regex.test(email);
 }
-
-/* Validate individual form field
-export const validateField = (field, validator) => {
-    if (!validator(field.element.value)) {
-        // Inserts an error that's next to the appropriate input field
-        const errorMsg = `<span class="error">${field.error}</span>`; 
-        field.element.insertAdjacentHTML('afterend', errorMsg);
-        return false;
-    }
-    return true;
-}
-*/
-
-/* Returns the result of validating each field
-export const validate = user => {
-    return [
-        validateField(user.title, validateTitle),
-        validateField(user.forename, validateName),
-        validateField(user.lastname, validateName),
-        validateField(user.email, validateEmail),
-        validateField(user.dob, validateDOB),
-        validateField(user.telephone, validatePhone),
-    ];
-}
-*/
