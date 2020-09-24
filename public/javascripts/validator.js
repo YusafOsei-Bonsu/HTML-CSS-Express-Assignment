@@ -18,11 +18,17 @@ export const validatePhone = (number) => {
 
 // Checks if the user is at least 18 years of age
 export const validateDOB = (date) => {
-    const today = new Date();
-    const DOB = new Date(date);
-    const age = today.getFullYear() - DOB.getFullYear();
+    let optimisedBday = date.replace(/-/g, '/');
 
-    return age >= 18;
+    let birthday = new Date(optimisedBday);
+    
+    let currentDate = new Date().toJSON().slice(0,10)+' 01:00:00';
+
+    let age = ~~((Date.now(currentDate) - birthday) / (31557600000));
+
+    // Determining if the user is an adult by law
+    let isAdult = age >= 18 ? true : false;
+    return isAdult;
 }
 
 // Checks if the email address is a valid email address
@@ -31,7 +37,7 @@ export const validateEmail = (email) => {
     return regex.test(email);
 }
 
-// Validate individual form field
+/* Validate individual form field
 export const validateField = (field, validator) => {
     if (!validator(field.element.value)) {
         // Inserts an error that's next to the appropriate input field
@@ -41,8 +47,9 @@ export const validateField = (field, validator) => {
     }
     return true;
 }
+*/
 
-// Returns the result of validating each field
+/* Returns the result of validating each field
 export const validate = user => {
     return [
         validateField(user.title, validateTitle),
@@ -53,3 +60,4 @@ export const validate = user => {
         validateField(user.telephone, validatePhone),
     ];
 }
+*/
