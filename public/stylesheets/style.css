@@ -87,7 +87,7 @@ abbr {
   width: 220px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .btn:focus {
@@ -102,9 +102,4 @@ abbr {
 
 .bi-arrow-right-short {
   height: 2rem;
-}
-
-#success-message {
-  font-size: 2rem;
-  color: #008000;
 }
