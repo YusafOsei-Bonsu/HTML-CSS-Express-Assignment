@@ -1,8 +1,6 @@
 import * as validator from './validator.js';
 console.log("Welcome to Express Assignment!");
 
-// document.getElementById('submit').disabled = true;
-
 const DOMElements = {
     title: {
       element: document.getElementById('title'),
